@@ -1,0 +1,33 @@
+modLoader="javafml"
+loaderVersion="[30,)"
+license="LGPL-3.0-only"
+issueTrackerURL="https://github.com/Bug1312/dm_module_cabinets/issues"
+[[mods]]
+modId="dm_module_cabinets"
+version="1.0.0"
+displayName="DM Module Cabinets Addon"
+displayURL="https://github.com/Bug1312/dm_module_cabinets"
+credits="Bug1312, ranafangirl"
+authors="Bug1312"
+description='''A Dalek Mod addon that adds a wireless new block to store your waypoint modules in your TARDIS, for ease of access!'''
+
+[[dependencies.dm_module_cabinets]]
+    modId="forge"
+    mandatory=true
+    versionRange="[30,)"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.dm_module_cabinets]]
+    modId="minecraft"
+    mandatory=true
+    versionRange="[1.16.4,1.16.5]"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.dm_module_cabinets]]
+    modId="dalekmod"
+    mandatory=true
+    versionRange="[65.1.0,)"
+    ordering="NONE"
+    side="BOTH"

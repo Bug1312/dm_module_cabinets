@@ -1,0 +1,79 @@
+{
+	"credit": "Made by ranafangirl",
+	"texture": "dm_module_cabinets:tileentity/module_cabinet",
+	"texture_width": 64,
+	"texture_height": 64,
+	"scale": 1,
+	"groups": [
+		{
+			"group_name": "slab",
+			"pivot": [0,24,0],
+			"rotation": [0,0,0],
+			"cubes": [
+				{
+					"uv": [0,0],
+					"size": [16,8,16],
+					"origin": [-8,-8,-8],
+					"inflate": 0,
+					"mirror": false
+				}
+			]
+		},
+		{
+			"group_name": "module",
+			"pivot": [0,24,0],
+			"rotation": [0,0,0],
+			"cubes": [
+				{
+					"uv": [0,1],
+					"size": [5,1,2],
+					"origin": [-6,-3,-10],
+					"inflate": 0,
+					"mirror": false
+				}
+			]
+		},
+		{
+			"group_name": "module_gold",
+			"pivot": [0,24,0],
+			"rotation": [0,0,0],
+			"cubes": [
+				{
+					"uv": [0,4],
+					"size": [5,1,2],
+					"origin": [-6,-3,-10],
+					"inflate": 0,
+					"mirror": false
+				}
+			]
+		},
+		{
+			"group_name": "indicator",
+			"pivot": [0,24,0],
+			"rotation": [0,0,0],
+			"cubes": [
+				{
+					"uv": [0,0],
+					"size": [3,1,0],
+					"origin": [-5,-4,-8.01],
+					"inflate": 0,
+					"mirror": false
+				}
+			]
+		},
+		{
+			"group_name": "top_indicator",
+			"pivot": [0,24,0],
+			"rotation": [0,0,0],
+			"cubes": [
+				{
+					"uv": [0,24],
+					"size": [16,0,16],
+					"origin": [-8,-8,-8],
+					"inflate": 0,
+					"mirror": false
+				}
+			]
+		}
+	]
+}

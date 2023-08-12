@@ -1,0 +1,19 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		"###",
+		"CCC"
+	],
+	"key": {
+		"C": {
+			"tag": "forge:circuits/basic"
+		},
+		"#": {
+			"item": "dalekmod:steel_block"
+		}
+	},
+	"result": {
+		"item": "dm_module_cabinets:module_cabinet",
+		"count": 6
+	}
+}

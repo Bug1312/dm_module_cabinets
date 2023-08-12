@@ -1,0 +1,13 @@
+{
+	"block.dm_module_cabinets.module_cabinet": "Data Module Cabinet Slab",
+	"block.dm_module_cabinets.wireless_module_selector": "Wireless Waypoint Panel",
+
+	"advancements.dm_module_cabinets.obtain_cabinet.title": "GUIs are overrated",
+	"advancements.dm_module_cabinets.obtain_cabinet.description": "Create a Module Cabinet to easily store your waypoints!",
+
+	"tooltip.dm_module_cabinets.module_cabinet.load": "Load Data Module",
+	"tooltip.dm_module_cabinets.module_cabinet.eject": "Eject Data Module",
+	"tooltip.dm_module_cabinets.wireless_module_selector.left": "Previous Waypoint",
+	"tooltip.dm_module_cabinets.wireless_module_selector.apply": "Apply Waypoint",
+	"tooltip.dm_module_cabinets.wireless_module_selector.right": "Next Waypoint"
+}

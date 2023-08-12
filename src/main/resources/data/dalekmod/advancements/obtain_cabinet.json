@@ -1,0 +1,35 @@
+{
+  "parent": "dalekmod:obtain_steel",
+  "display": {
+    "icon": {
+      "item": "dm_module_cabinets:module_cabinet"
+    },
+    "title": {
+      "translate": "advancements.dm_module_cabinets.obtain_cabinet.title"
+    },
+    "description": {
+      "translate": "advancements.dm_module_cabinets.obtain_cabinet.description"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "obtain_cabinet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "dm_module_cabinets:module_cabinet"
+          }
+        ]
+      }
+    }
+  },
+  "requirements": [
+    [
+      "obtain_cabinet"
+    ]
+  ]
+}

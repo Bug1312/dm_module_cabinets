@@ -1,0 +1,7 @@
+{
+	"variants": {
+		"": {
+			"model": "dm_module_cabinets:block/module_cabinet"
+		}
+	}
+}

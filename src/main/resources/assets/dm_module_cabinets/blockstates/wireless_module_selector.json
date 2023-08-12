@@ -1,0 +1,23 @@
+{
+	"variants": {
+		"facing=north,button_pressed=0": { "model": "dm_module_cabinets:block/wireless_module_selector_off" },
+		"facing=north,button_pressed=1": { "model": "dm_module_cabinets:block/wireless_module_selector_left" },
+		"facing=north,button_pressed=2": { "model": "dm_module_cabinets:block/wireless_module_selector_select" },
+		"facing=north,button_pressed=3": { "model": "dm_module_cabinets:block/wireless_module_selector_right" },
+
+		"facing=east,button_pressed=0": { "model": "dm_module_cabinets:block/wireless_module_selector_off", "y": 90 },
+		"facing=east,button_pressed=1": { "model": "dm_module_cabinets:block/wireless_module_selector_left", "y": 90 },
+		"facing=east,button_pressed=2": { "model": "dm_module_cabinets:block/wireless_module_selector_select", "y": 90 },
+		"facing=east,button_pressed=3": { "model": "dm_module_cabinets:block/wireless_module_selector_right", "y": 90 },
+
+		"facing=south,button_pressed=0": { "model": "dm_module_cabinets:block/wireless_module_selector_off", "y": 180 },
+		"facing=south,button_pressed=1": { "model": "dm_module_cabinets:block/wireless_module_selector_left", "y": 180 },
+		"facing=south,button_pressed=2": { "model": "dm_module_cabinets:block/wireless_module_selector_select", "y": 180 },
+		"facing=south,button_pressed=3": { "model": "dm_module_cabinets:block/wireless_module_selector_right", "y": 180 },
+
+		"facing=west,button_pressed=0": { "model": "dm_module_cabinets:block/wireless_module_selector_off", "y": 270 },
+		"facing=west,button_pressed=1": { "model": "dm_module_cabinets:block/wireless_module_selector_left", "y": 270 },
+		"facing=west,button_pressed=2": { "model": "dm_module_cabinets:block/wireless_module_selector_select", "y": 270 },
+		"facing=west,button_pressed=3": { "model": "dm_module_cabinets:block/wireless_module_selector_right", "y": 270 }
+	}
+}

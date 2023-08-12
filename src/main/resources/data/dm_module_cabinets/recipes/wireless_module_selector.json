@@ -1,0 +1,29 @@
+{
+	"type": "minecraft:crafting_shaped",
+	"pattern": [
+		" T ",
+		"BWC",
+		"SSS"
+	],
+	"key": {
+		"T": {
+			"item": "minecraft:redstone_torch"
+		},
+		"W": {
+			"item": "dalekmod:waypoint_panel"
+		},
+		"B": {
+			"tag": "minecraft:buttons"
+		},
+		"C": {
+			"tag": "forge:circuits/basic"
+		},
+		"S": {
+			"item": "minecraft:stone"
+		}
+	},
+	"result": {
+		"item": "dm_module_cabinets:wireless_module_selector",
+		"count": 1
+	}
+}

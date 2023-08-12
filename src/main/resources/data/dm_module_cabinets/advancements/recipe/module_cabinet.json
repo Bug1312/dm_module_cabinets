@@ -1,0 +1,32 @@
+{
+	"parent": "minecraft:recipes/root",
+	"criteria": {
+		"has_items": {
+			"trigger": "minecraft:inventory_changed",
+			"conditions": {
+				"items": [
+					{
+						"tag": "forge:circuits/basic"
+					}
+				]
+			}
+		},
+		"has_the_recipe": {
+			"trigger": "minecraft:recipe_unlocked",
+			"conditions": {
+				"recipe": "dm_module_cabinets:module_cabinet"
+			}
+		}
+	},
+	"requirements": [
+		[
+			"has_items",
+			"has_the_recipe"
+		]
+	],
+	"rewards": {
+		"recipes": [
+			"dm_module_cabinets:module_cabinet"
+		]
+	}
+}
