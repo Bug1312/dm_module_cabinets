@@ -4,7 +4,7 @@ license="LGPL-3.0-only"
 issueTrackerURL="https://github.com/Bug1312/dm_module_cabinets/issues"
 [[mods]]
 modId="dm_module_cabinets"
-version="1.0.0"
+version="1.1.0"
 displayName="DM Module Cabinets Addon"
 displayURL="https://github.com/Bug1312/dm_module_cabinets"
 credits="Bug1312, ranafangirl"
@@ -28,6 +28,6 @@ description='''A Dalek Mod addon that adds a wireless new block to store your wa
 [[dependencies.dm_module_cabinets]]
     modId="dalekmod"
     mandatory=true
-    versionRange="[65.1.0,)"
+    versionRange="[69,)"
     ordering="NONE"
     side="BOTH"

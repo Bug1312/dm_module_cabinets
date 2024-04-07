@@ -1,11 +1,13 @@
-// Copyright 2023 Bug1312 (bug@bug1312.com)
+// Copyright 2024 Bug1312 (bug@bug1312.com)
 
 package com.bug1312.dm_module_cabinets.common.block;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.Random;
 import java.util.function.Supplier;
 
@@ -15,12 +17,19 @@ import com.bug1312.dm_module_cabinets.common.tileentity.ModuleSelectorTileEntity
 import com.swdteam.common.block.IBlockTooltip;
 import com.swdteam.common.block.RotatableTileEntityBase;
 import com.swdteam.common.init.DMSoundEvents;
+import com.swdteam.common.init.DMTardis;
+import com.swdteam.common.tardis.TardisData;
+import com.swdteam.common.tileentity.tardis.PanelHealthUpgrade;
+import com.swdteam.common.tileentity.tardis.TardisPanelTileEntity;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.CompoundNBT;
 import net.minecraft.state.IntegerProperty;
 import net.minecraft.state.StateContainer.Builder;
 import net.minecraft.tileentity.TileEntity;
@@ -102,22 +111,23 @@ public class ModuleSelectorBlock extends RotatableTileEntityBase.WaterLoggable i
 				TileEntity tile = world.getBlockEntity(pos);
 				if (tile instanceof ModuleSelectorTileEntity) {
 					ModuleSelectorTileEntity panel = ((ModuleSelectorTileEntity) tile);
-
-					switch (button) {
-						case LEFT:
-							panel.shiftSelection(false);
-							break;
-						case RIGHT:
-							panel.shiftSelection(true);
-							break;
-						case SELECT:
-							panel.selectWaypoint();
-							break;
+					if (panel.validUse(new TranslationTextComponent("notice.dm_module_cabinets.wireless_module_selector.broken").getString(), player, world)) {
+						switch (button) {
+							case LEFT:
+								panel.shiftSelection(false);
+								break;
+							case RIGHT:
+								panel.shiftSelection(true);
+								break;
+							case SELECT:
+								panel.selectWaypoint();
+								break;
+						}
+						
+						world.setBlockAndUpdate(pos, state.setValue(BUTTON_SELECTED, button.ordinal() + 1));
+						world.playSound(null, pos, DMSoundEvents.TARDIS_CONTROLS_BUTTON_CLICK.get(), SoundCategory.BLOCKS, 1, 1);
+						world.getBlockTicks().scheduleTick(pos, this, 5);
 					}
-					
-					world.setBlockAndUpdate(pos, state.setValue(BUTTON_SELECTED, button.ordinal() + 1));
-					world.playSound(null, pos, DMSoundEvents.TARDIS_CONTROLS_BUTTON_CLICK.get(), SoundCategory.BLOCKS, 1, 1);
-					world.getBlockTicks().scheduleTick(pos, this, 5);
 				}
 			}			
 		}
@@ -171,6 +181,29 @@ public class ModuleSelectorBlock extends RotatableTileEntityBase.WaterLoggable i
 		}
 		
 		return null;
+	}
+	
+	// Boilerplate for panels
+	public void setPlacedBy(World world, BlockPos pos, BlockState state, @Nullable LivingEntity livingEntity, ItemStack stack) {
+		TileEntity te = world.getBlockEntity(pos);
+		if (te instanceof TardisPanelTileEntity) {
+			TardisPanelTileEntity panel = (TardisPanelTileEntity) te;
+			if (stack.hasTag()) {
+				CompoundNBT nbt = stack.getOrCreateTag();
+				if (nbt.contains("PanelDamage")) panel.setDamage(nbt.getInt("PanelDamage"));
+				if (nbt.contains("PanelDurability")) panel.setDurability(nbt.getInt("PanelDurability"));
+				if (nbt.contains("PanelName")) panel.setName(nbt.getString("PanelName"));
+				if (nbt.contains("PanelCircuit")) {
+					Optional<PanelHealthUpgrade> healthUpgrade = Arrays.stream(PanelHealthUpgrade.values())
+				        .filter(value -> value.id().equalsIgnoreCase(nbt.getString("PanelCircuit"))).findFirst();
+					if (healthUpgrade.isPresent()) panel.setHealthUpgrade(healthUpgrade.get());
+				}
+			}
+
+			TardisData data = DMTardis.getTardisFromInteriorPos(pos);
+			panel.addOrCheckToTardisData(data);
+			data.save();
+		}
 	}
 
 	private static enum ModuleSelectorButtons {

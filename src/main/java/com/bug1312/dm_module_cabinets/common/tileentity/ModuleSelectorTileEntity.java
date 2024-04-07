@@ -1,4 +1,4 @@
-// Copyright 2023 Bug1312 (bug@bug1312.com)
+// Copyright 2024 Bug1312 (bug@bug1312.com)
 
 package com.bug1312.dm_module_cabinets.common.tileentity;
 
@@ -11,7 +11,8 @@ import com.swdteam.common.init.DMDimensions;
 import com.swdteam.common.init.DMTardis;
 import com.swdteam.common.tardis.TardisData;
 import com.swdteam.common.tardis.data.TardisFlightPool;
-import com.swdteam.common.tileentity.DMTileEntityBase;
+import com.swdteam.common.tileentity.tardis.TardisPanelTileEntity;
+import com.swdteam.util.SWDMathUtils;
 
 import net.minecraft.block.BlockState;
 import net.minecraft.nbt.CompoundNBT;
@@ -22,8 +23,9 @@ import net.minecraft.util.registry.Registry;
 import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.StringTextComponent;
 
-public class ModuleSelectorTileEntity extends DMTileEntityBase {
+public class ModuleSelectorTileEntity extends TardisPanelTileEntity {
 
+	private static final long serialVersionUID = -8511035829776989932L;
 	public CabinetWaypoint waypoint;
 	public ITextComponent selected;
 	
@@ -39,7 +41,10 @@ public class ModuleSelectorTileEntity extends DMTileEntityBase {
 		if (level.isClientSide() || level.dimension() != DMDimensions.TARDIS || waypoint == null) return;
 		
 		TardisData data = DMTardis.getTardis(DMTardis.getIDForXZ(getBlockPos().getX(), getBlockPos().getZ()));
-		if (data == null || !waypoint.stack.hasTag() || !waypoint.stack.getTag().contains("location")) return;
+		if (data == null) return;
+		
+		if (this.getDamagePercentage() >= 90 && SWDMathUtils.RANDOM.nextInt(10) == 0) this.shiftSelection(SWDMathUtils.RANDOM.nextBoolean());
+		if (!waypoint.stack.hasTag() || !waypoint.stack.getTag().contains("location")) return;
 
 		CompoundNBT tag = waypoint.stack.getTag().getList("location", 10).getCompound(0);
 		if (!tag.contains("pos_x")) return;
@@ -102,5 +107,10 @@ public class ModuleSelectorTileEntity extends DMTileEntityBase {
 		if (selected != null) compound.putString("Selected", ITextComponent.Serializer.toJson(selected));
 		
 		return compound;
+	}
+	
+	@Override
+	public ResourceLocation getGUIIcon() {
+		return new ResourceLocation("dm_module_cabinets:textures/item/wireless_module_selector.png");
 	}
 }

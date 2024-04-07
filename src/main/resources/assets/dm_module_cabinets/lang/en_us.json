@@ -9,5 +9,7 @@
 	"tooltip.dm_module_cabinets.module_cabinet.eject": "Eject Data Module",
 	"tooltip.dm_module_cabinets.wireless_module_selector.left": "Previous Waypoint",
 	"tooltip.dm_module_cabinets.wireless_module_selector.apply": "Apply Waypoint",
-	"tooltip.dm_module_cabinets.wireless_module_selector.right": "Next Waypoint"
+	"tooltip.dm_module_cabinets.wireless_module_selector.right": "Next Waypoint",
+
+	"notice.dm_module_cabinets.wireless_module_selector.broken": "Wireless Waypoint Panel is broken!"
 }
